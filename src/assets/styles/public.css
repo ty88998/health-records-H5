@@ -1,0 +1,74 @@
+.head {
+  height: 4.44rem;
+  background: #3B6CDF;
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+  border-radius: 0 0 47% 47%;
+}
+.headTitle{
+  height: 0.68rem;
+  padding-top: 0.1rem;
+}
+.headTitle>p{
+  font-size: 0.34rem;
+  text-align: center;
+}
+
+.icon-prev {
+  position: absolute;
+  left: 12px;
+  top: 0.16rem;
+}
+.headImg{
+  margin-top: 0.28rem;
+  display: flex;
+  position: relative;
+}
+.icon-head{
+  width: 1.54rem;
+	height: 1.54rem;
+  border-radius: 68px;
+	box-shadow: 0px 0px 0.24rem 0px rgba(0, 0, 0, 0.3);
+  margin-left: 0.56rem;
+}
+.headText{
+  margin-left: 0.34rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.headText>span{
+  font-size: 0.4rem;
+  vertical-align: top;
+}
+.headText>p{
+  font-size: 0.28rem;
+  font-weight: normal;
+  color: rgba(186, 206, 255, 1);
+}
+.icon-eye{
+  position: absolute;
+  bottom: 0.3rem;
+  right: 0.82rem;
+}
+.public{
+  box-sizing: border-box;
+  position: relative;
+}
+.public>.content{
+  width: 100%;
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* .mytitle{
+  padding: 0;
+  line-height: 0.8rem;
+  word-break: keep-all;
+} */
