@@ -2,7 +2,7 @@
     <div>
         <div class="contentItem">
             <div class="textTitle">
-                基本信息
+                {{title}}
             </div>
             <div class="navBtn">
                 <div class="item" v-for="item in itemList" :key="item.label" @click="loadPage({title:item.label,route:item.route})">
@@ -20,6 +20,10 @@
             itemList:{
                 type:Array,
                 default:[]
+            },
+            title:{
+                type:String,
+                default:'基本信息'
             }
         },
         
@@ -28,30 +32,15 @@
 
 <style scoped>
     .contentItem{
-        width: 6.88rem;
         height: 3.62rem;
-        left: 0.3rem;
-        top: 3.5rem;
-        color: rgba(80, 80, 80, 1);
-        background-color: rgba(255, 255, 255, 1);
-        border-radius: 0.18rem;
-        font-size: 0.26rem;
-        line-height: 150%;
-        box-shadow: 0rem 0rem 0.18rem 0rem rgba(0, 0, 0, 0.5);
-        text-align: center;
-        overflow: hidden;
         margin-bottom: 0.42rem;
     }
     .textTitle{
         width: 1.34rem;
         height: 0.48rem;
-        margin-left: 0.44rem;
         margin-top: 0.32rem;
-        color: rgba(80, 80, 80, 1);
-        font-size: 0.32rem;
         line-height: 150%;
-        text-align: left;
-        font-weight: bold;
+        font-size: 0.32rem;
     }
     .navBtn{
         display: flex;

@@ -18,6 +18,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
+import * as echarts from 'echarts';
 import { setItem,getItem } from './utils/util';
 import { api } from './api/api';
 //引入UI框架
@@ -45,6 +46,7 @@ fastClick.attach(document.body);
 Vue.prototype.$setItem = setItem;
 Vue.prototype.$getItem = getItem;
 Vue.prototype.$api = api;
+Vue.prototype.$echarts = echarts;
 Vue.config.productionTip = false;
 Vue.mixin(myMixin);
 Vue.use(MintUI)

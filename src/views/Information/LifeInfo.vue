@@ -1,29 +1,33 @@
 <template>
   <div class="public" v-if="Loading" ref="wrapper" :style="{ height: (wrapperHeight-10) + 'px' }">
-    <!-- <PublicHead></PublicHead> -->
-    <div class="table_box">
-      <table id="table">
-        <tbody style="width:100%;">
-          <tr><td class="mytitle"><strong>劳动类型：</strong></td><td>{{workType}}</td></tr>
-          <tr><td class="mytitle"><strong>膳食结构：</strong></td><td>{{dietStru}}</td></tr>
-          <tr><td class="mytitle"><strong>饮食口味：</strong></td><td>{{dietTaste}}</td></tr>
-          <tr><td class="mytitle"><strong>每日主食(米/面)总量：</strong></td><td>{{dailyFoodAmt}}</td></tr>
-          <tr><td class="mytitle"><strong>饮酒情况：</strong></td><td>{{wineFreq}}</td></tr>
-          <tr><td class="mytitle"><strong>吸烟情况：</strong></td><td>{{smokeFreq}}</td></tr>
-          <tr><td class="mytitle"><strong>运动强度：</strong></td><td>{{exerciseIntensity}}</td></tr>
-          <tr><td class="mytitle"><strong>平均每周运动情况：</strong></td><td>{{avgExerciseWeek}}</td></tr>
-          <tr><td class="mytitle"><strong>精神状态：</strong></td><td>{{mindStat}}</td></tr>
-        </tbody>
-      </table>
+    <PublicHead :title="'生活方式'"></PublicHead>
+    
+    <div class="content">
+      <div class="contentItem">
+          <div class="textTitle">
+                生活方式
+          </div>
+          <div class="contentShow">
+            <div><p>劳动类型</p><span>{{workType}}</span></div>
+            <div><p>膳食结构</p><span>{{dietStru}}</span></div>
+            <div><p>饮食口味</p><span>{{dietTaste}}</span></div>
+            <div><p>每日主食(米/面)总量</p><span>{{dailyFoodAmt}}</span></div>
+            <div><p>日饮酒情况</p><span>{{wineFreq}}</span></div>
+            <div><p>日吸烟情况</p><span>{{smokeFreq}}</span></div>
+            <div><p>平均每周运动情况</p><span>{{avgExerciseWeek}}</span></div>
+            <div><p>运动强度</p><span>{{exerciseIntensity}}</span></div>
+            <div><p>精神状态</p><span>{{mindStat}}</span></div>
+          </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-// import PublicHead from "../../components/information/PublicHead.vue";
+import PublicHead from "../../components/information/PublicHead.vue";
 export default {
   components: {
-    // PublicHead,
+    PublicHead,
   },
   created() {
     
@@ -49,4 +53,32 @@ export default {
 </script>
 
 <style scoped>
+  .contentItem{
+    height: 13.26rem;
+    margin-bottom: 0.4rem;
+  }
+  .textTitle{
+    width: 2.2rem;
+    height: 0.52rem;
+    font-size: 0.36rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.24rem;
+    line-height: 0.52rem;
+  }
+  .contentShow{
+    width: 100%;
+    height: 6.14rem;
+    padding: 0 0.44rem;
+    color: rgba(0, 0, 0, 1);
+    font-size: 0.28rem;
+    text-align: left;
+  }
+  .contentShow p{
+    color: #767676;
+    line-height: 100%;
+    margin-bottom: 0.16rem;
+  }
+  .contentShow>div{
+    margin-bottom: 0.4rem;
+  }
 </style>

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-      <transition :name="SkipSwitchName">
-            <router-view />
+      <transition :name="transitionName">
+           <keep-alive include="home">
+               <router-view class="child-view"> </router-view>
+           </keep-alive>
       </transition>
   </div>
 </template>
@@ -11,7 +13,7 @@ export default {
   name: "App",
   data() {
     return {
-      SkipSwitchName: "",
+      transitionName: 'slide-left'
     }
   },
   created() {
@@ -22,9 +24,9 @@ export default {
   watch: {
     $route(to, from) {
       if (to.meta.tx > from.meta.tx) {
-        this.SkipSwitchName= "Skleft";
+        this.transitionName = "slide-left";
       } else {
-        this.SkipSwitchName= "Skright";
+        this.transitionName = "slide-right";
       }
     }
   },
@@ -115,22 +117,19 @@ body::-webkit-scrollbar {
   left: 0;
 }
 /* 页面过度动画 */
-.Skright-enter-active,
-.Skright-leave-active,
-.Skleft-enter-active,
-.Sklef-leave-active {
-  transition: all 600ms;
+.child-view {
+    position: absolute;
+    width:100%;
+    transition: all .4s ;
 }
-.Skright-enter {
-  transform: translate3d(-100%, 0, 0);
+.slide-left-enter, .slide-right-leave-active {
+    opacity: 0;
+    -webkit-transform: translate(100%, 0);
+    transform: translate(100%, 0);
 }
-.Skright-leave-to {
-  transform: translate3d(100%, 0, 0);
-}
-.Skleft-enter {
-  transform: translate3d(100%, 0, 0);
-}
-.Skleft-leave-to {
-  transform: translate3d(-100%, 0, 0);
+.slide-left-leave-active, .slide-right-enter {
+    opacity: 0;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
 }
 </style>

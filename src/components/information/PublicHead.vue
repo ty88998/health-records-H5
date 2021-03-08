@@ -2,7 +2,7 @@
     <div>
         <div class="head">
             <div class="headTitle">
-                <svg t="1614930456774" class="icon icon-prev" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3788" width="16" height="16"><path d="M255.72 511.99 250.279 517.451 686.469 953.646 773.721 866.412 419.317 511.99 773.721 157.608 686.469 70.354 250.279 506.568Z" p-id="3789" fill="#ffffff"></path></svg>
+                <svg v-if="!isHome" @click="prevPage" t="1614930456774" class="icon icon-prev" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3788" width="16" height="16"><path d="M255.72 511.99 250.279 517.451 686.469 953.646 773.721 866.412 419.317 511.99 773.721 157.608 686.469 70.354 250.279 506.568Z" p-id="3789" fill="#ffffff"></path></svg>
                 <p>{{publicTitle}}</p>
             </div>
             <div class="headImg">
@@ -29,6 +29,7 @@
         data() {
             return {
                 eyeStauas:true,
+                isHome:this.$router.currentRoute.path==='/information',//当前页面是否首页
             }
         },
         methods: {

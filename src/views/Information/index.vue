@@ -19,8 +19,15 @@
                 :items="items"
                 :options="options">
     </ly-tab> -->
-    <ContentItem :itemList="basicInfo"></ContentItem>
-    <ContentItem :itemList="medicalInfo"></ContentItem>
+    <ContentItem :itemList="basicInfo" :title="'基本信息'"></ContentItem>
+    <ContentItem :itemList="medicalInfo" :title="'医疗信息'"></ContentItem>
+    <div class="footer">
+      <div class="footer_left">
+        <div class="left_top" @click="loadPage({title:'准入信息',route:'diseaseinfo'})"><span>准入信息</span></div>
+        <div class="left_bottom" @click="loadPage({title:'待遇信息',route:'treatmentInfo'})"><span>待遇信息</span></div>
+      </div>
+      <div class="footer_right"><span>随访信息</span></div>
+    </div>
           <!-- <Infor :title="'基本信息'" :route="'patientBasics'"></Infor>
           <Infor :title="'体征信息'" :route="'bodyInfo'"></Infor>
           <Infor :title="'生活方式'" :route="'lifeInfo'"></Infor>
@@ -74,8 +81,8 @@ export default {
       ],
       //医疗信息
       medicalInfo:[
-         {label: '门诊记录',route:'outpatientRecords'},
-         {label: '检验报告',route:'surveyReport'},
+        {label: '门诊记录',route:'outpatientRecords'},
+        {label: '检验报告',route:'surveyReport'},
         {label: '处方记录',route:'prescriptionRecords'},
         {label: '费用结算信息',route:'payInfo'}
       ],
@@ -107,6 +114,64 @@ export default {
 .ly-tab-item{
   height: 2rem;
   width: 4rem;
-  margin-left: 60px;
+  margin-left: 1.2rem;
 } */
+.footer{
+  height: 3.3rem;
+  width: 6.88rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.42rem;
+}
+.footer_left,.footer_right{
+  width: 3.32rem;
+}
+.footer_left{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.footer_left>div{
+  width: 3.32rem;
+	height: 1.54rem;
+	border-radius: 0.16rem;
+	box-shadow: 0rem 0rem 0.24rem 0rem rgba(0, 0, 0, 0.25);
+  /* 文字样式 */
+  font-size: 0.36rem;
+  font-weight: 900;
+  position: relative;
+}
+.footer_left>.left_top{
+  background: linear-gradient(90deg,#CDF9F1 0%,#EEFCFC 70%);
+  color: #4E9F90;
+}
+.footer_left>.left_bottom{
+  background: linear-gradient(90deg,#1599F4 0%,#2682EC 70%);
+  color: #B9DEF1;
+}
+.footer_left>div>span{
+  position: absolute;
+  left: 0.2rem;
+  bottom: 0.1rem;
+}
+.footer_right{
+	height: 3.3rem;
+	border-radius: 0.16rem;
+	box-shadow: 0rem 0rem 0.24rem 0rem rgba(0, 0, 0, 0.3);
+  font-size: 0.36rem;
+  font-weight: 900;
+  background: linear-gradient(90deg,#73AEFC 0%,#E8F5FF 70%);
+  position: relative;
+  color: #FDFEFF;
+}
+.footer_right>span{
+  position: absolute;
+  width: 0.8rem;
+  height: 0.8rem;
+  text-align: center;
+  line-height: 0.44rem;
+  left: 0.2rem;
+  bottom: 0.2rem;
+}
+
 </style>

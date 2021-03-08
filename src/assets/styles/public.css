@@ -41,7 +41,7 @@
 }
 .headText>span{
   font-size: 0.4rem;
-  vertical-align: top;
+  margin-bottom: 0.06rem;
 }
 .headText>p{
   font-size: 0.28rem;
@@ -50,7 +50,7 @@
 }
 .icon-eye{
   position: absolute;
-  bottom: 0.3rem;
+  bottom: 0.27rem;
   right: 0.82rem;
 }
 .public{
@@ -67,6 +67,28 @@
   flex-direction: column;
   align-items: center;
 }
+.contentItem{
+  width: 6.88rem;
+  left: 0.3rem;
+  top: 3.5rem;
+  color: rgba(80, 80, 80, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 0.18rem;
+  font-size: 0.26rem;
+  line-height: 150%;
+  box-shadow: 0rem 0rem 0.18rem 0rem rgba(0, 0, 0, 0.5);
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.textTitle{
+  margin-left: 0.44rem;
+  color: rgba(80, 80, 80, 1);
+  text-align: left;
+  font-weight: bold;
+}
+
+
 /* .mytitle{
   padding: 0;
   line-height: 0.8rem;

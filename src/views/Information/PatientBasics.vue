@@ -1,22 +1,19 @@
 <template>
   <div class="public" v-if="Loading">
-    <PublicHead></PublicHead>
-    <div class="table_box">
-      <!-- <mt-field label="姓名：" disabled :value='username'></mt-field>
-      <mt-field label="性别：" disabled :value="gend"></mt-field>
-      <mt-field label="年龄：" disabled :value="age"></mt-field>
-      <mt-field label="电话："  type="tel" disabled :value="tel"></mt-field>
-      <mt-field label="身份证号码：" disabled :value="showCard"></mt-field> -->
-      <!-- <mt-field label="身份证号码" v-model="website"></mt-field> -->
-      <table id="table">
-        <tbody style="width:100%;">
-          <tr><td class="mytitle"><strong>姓名：</strong></td><td>{{username}}</td></tr>
-          <tr><td class="mytitle"><strong>性别：</strong></td><td>{{gend}}</td></tr>
-          <tr><td class="mytitle"><strong>年龄：</strong></td><td>{{age}}</td></tr>
-          <tr><td class="mytitle"><strong>电话：</strong></td><td>{{tel}}</td></tr>
-          <tr><td class="mytitle"><strong>身份证号码：</strong></td><td>{{showCard}}</td></tr>
-        </tbody>
-      </table>
+    <PublicHead :publicTitle="'个人信息'"></PublicHead>
+    <div class="content">
+      <div class="contentItem">
+          <div class="textTitle">
+                个人基本信息
+          </div>
+          <div class="contentShow">
+            <div><p>出生日期</p><span>{{birthday}}</span></div>
+            <div><p>性别</p><span>{{gend}}</span></div>
+            <div><p>联系电话</p><span>{{tel}}</span></div>
+            <div><p>居住地址</p><span>{{address}}</span></div>
+            <div><p>医疗费用支付方式</p><span>{{payType}}</span></div>
+          </div>
+      </div>
     </div>
    </div>
 </template>
@@ -35,7 +32,9 @@ export default {
       username:'张钰',
       gend:'男',
       age:'0',
-      tel:'18000000220'
+      tel:'18000000220',
+      address:'重庆市渝中区经纬大道789号',
+      payType:'医保卡支付'
     }
   },
   created() {
@@ -69,5 +68,31 @@ export default {
 </script>
 
 <style scoped>
-  
+  .contentItem{
+    height: 8.8rem;
+  }
+  .textTitle{
+    width: 2.2rem;
+    height: 0.52rem;
+    font-size: 0.36rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.24rem;
+    line-height: 0.52rem;
+  }
+  .contentShow{
+    width: 100%;
+    height: 6.14rem;
+    padding: 0 0.44rem;
+    color: rgba(0, 0, 0, 1);
+    font-size: 0.28rem;
+    text-align: left;
+  }
+  .contentShow p{
+    color: #767676;
+    line-height: 100%;
+    margin-bottom: 0.16rem;
+  }
+  .contentShow>div{
+    margin-bottom: 0.4rem;
+  }
 </style>
