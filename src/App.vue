@@ -120,16 +120,21 @@ body::-webkit-scrollbar {
 .child-view {
     position: absolute;
     width:100%;
-    transition: all .4s ;
+    transition: all 0.5s ;
 }
 .slide-left-enter, .slide-right-leave-active {
     opacity: 0;
+    height: 0;
     -webkit-transform: translate(100%, 0);
     transform: translate(100%, 0);
 }
 .slide-left-leave-active, .slide-right-enter {
     opacity: 0;
+    height: 0;
     -webkit-transform: translate(-100%, 0);
     transform: translate(-100%, 0);
+}
+.slide-left-leave,.slide-right-leave{
+  display:none;
 }
 </style>

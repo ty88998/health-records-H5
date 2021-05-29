@@ -8,8 +8,8 @@
           </div>
           <div class="contentShow">
             <div><p>出生日期</p><span>{{birthday}}</span></div>
-            <div><p>性别</p><span>{{gend}}</span></div>
-            <div><p>联系电话</p><span>{{tel}}</span></div>
+            <div><p>性别</p><span>{{info.gend}}</span></div>
+            <div><p>联系电话</p><span>{{info.tel}}</span></div>
             <div><p>居住地址</p><span>{{address}}</span></div>
             <div><p>医疗费用支付方式</p><span>{{payType}}</span></div>
           </div>
@@ -26,6 +26,7 @@ export default {
   },
   data() {
     return {
+      info:{},
       idcard:'380481196001010105',
       birthday:'19600101',
       showCard:'',
@@ -33,13 +34,13 @@ export default {
       gend:'男',
       age:'0',
       tel:'18000000220',
-      address:'重庆市渝中区经纬大道789号',
       payType:'医保卡支付'
     }
   },
   created() {
     this.getCardScreat()
     this.getAge()
+    this.queryPatientBasics();
   },
   methods: {
     getCardScreat(){
@@ -62,8 +63,23 @@ export default {
       let date = year + '-' + month + '-' + day;
       let age = (new Date() - new Date(date)) / 1000 / 3600 / 24 / 365;
       this.age = parseInt(age);
+    },
+    //获取患者个人基本信息
+    async queryPatientBasics(){
+      try {
+        let result = await this.$api.information.queryPatientBasicsApi({pcNo:'20170415'})
+        this.info = result.data;
+      } catch (error) {
+        console.log(error)
+      }
     }
   },
+  computed:{
+    address(){
+      if(this.info.insuProvinceCode===this.info.insuCityCode)return (this.info.insuProvinceCode + this.info.insuDetlAddr);
+      else return(this.info.insuProvinceCode + this.info.insuCityCode + this.info.insuDetlAddr);
+    }
+  }
 };
 </script>
 

@@ -12,7 +12,7 @@ const instance = axios.create({
     // baseURL: `${env==="development" ? "/api" : baseApi.Prod}`,
     // baseURL:'',
     // headers: { 'Content-Type': 'multipart/form-data' },
-    timeout: 5000 // 设置超时的时间，超过设置时间自动断开连接
+    timeout: 10000 // 设置超时的时间，超过设置时间自动断开连接
 });
 // 设置请求拦截器：给所有的 axios 请求设置统一的请求头（添加 token）
 instance.interceptors.request.use(
@@ -33,12 +33,13 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
     // 响应成功
     res => {
-        // 0000="操作成功
-        // 0001="操作失败
-        // 0002="暂无数据
-        // 0003="系统错误
-        // 0004="验签失败
+        // 0="成功。
+        // -1="报文格式错误。
+        // -2="系统异常或网络异常。
+        // -3="存储过程逻辑判断
         return res.data; // { data: {}}
+        
+        
     },
     // 响应失败
     err => {

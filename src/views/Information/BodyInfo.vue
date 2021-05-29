@@ -26,7 +26,7 @@
             <div class="explain">
               <p>·&nbsp;BMI是指身体质量指数，它是结合了身高和体重2个因素来判断人体胖瘦程度以及是否健康的一个标准。</p>
               <p>·&nbsp;计算公式为: BMI=体重÷身高²</p>
-              <p>·&nbsp;BMI在18.5-24之间是正常的。BMI低于18.5考虑为体重过轻; 24-27之间为超重;超过27以上为肥胖。但BMI指数并不适用于儿童，孕产妇，长期卧床体质虚弱的老年人，或者正在进行-些力量肌肉训练的人。</p>
+              <p>·&nbsp;BMI在18.5-24之间是正常的。BMI低于18.5考虑为体重过轻; 24-27之间为超重; 超过27以上为肥胖。但BMI指数并不适用于儿童，孕产妇，长期卧床体质虚弱的老年人，或者正在进行一些力量肌肉训练的人。</p>
             </div>
           </div>
       </div>
@@ -41,7 +41,7 @@ export default {
     PublicHead
   },
   created() {
-    
+    this.getBodyInfo();
   },
   data() {
     return {
@@ -55,6 +55,11 @@ export default {
     this.drawDev();
   },
   methods: {
+    //获取患者体征信息
+    async getBodyInfo(){
+      let result = await this.$api.information.getBodyInfoApi({pcNo:'5001020'});
+      console.log(result)
+    },
     //仪表盘
     drawDev() {
       let myChart = this.$echarts.init(

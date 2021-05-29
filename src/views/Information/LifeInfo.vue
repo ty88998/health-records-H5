@@ -30,7 +30,7 @@ export default {
     PublicHead,
   },
   created() {
-    
+    this.getLifeInfo();
   },
   data() {
     return {
@@ -47,7 +47,11 @@ export default {
     };
   },
   methods: {
-    
+    //获取患者生活方式
+    async getLifeInfo(){
+      let result = await this.$api.information.getLifeInfoApi({pcNo:'5001020'})
+      console.log(result)
+    }
   }
 };
 </script>

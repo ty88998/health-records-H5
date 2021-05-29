@@ -88,7 +88,7 @@ export default {
     PublicHead,
   },
   created() {
-    
+    this.getDiseaseInfo();
   },
   data() {
     return {
@@ -117,7 +117,16 @@ export default {
     };
   },
   methods: {
-    
+    //获取患者疾病信息
+    // async getDiseaseInfo(){
+    //   let result = await this.$api.information.getDiseaseInfoApi({pcNo:'5001020'});
+    //   console.log(result);
+    // }
+    getDiseaseInfo(){
+      this.$api.information.getDiseaseInfoApi({pcNo:'5001020'}).then(res=>{
+        console.log(res)
+      });
+    }
   },
 };
 </script>
